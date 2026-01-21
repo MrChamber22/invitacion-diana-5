@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación Diana Evelin Chaparro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      color: #d4af37;
+    }
+
+    .container {
+      position: relative;
+      width: 340px;
+      height: 240px;
+      cursor: pointer;
+    }
+
+    .envelope {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #f5e29f, #c9a233);
+      border-radius: 10px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      overflow: hidden;
+    }
+
+    .flap {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(135deg, #f7e7b5, #b9962e);
+      transform-origin: top center;
+      transition: transform 1.2s ease;
+      z-index: 3;
+    }
+
+    .body {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #f0d98c, #b58b1d);
+      z-index: 1;
+    }
+
+    .card {
+      position: absolute;
+      width: 94%;
+      height: 160%;
+      background: #0d0d0d;
+      border: 2px solid #d4af37;
+      border-radius: 12px;
+      left: 3%;
+      bottom: -140%;
+      transition: bottom 1.3s ease;
+      z-index: 2;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      padding: 18px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .card h1 {
+      font-size: 22px;
+      margin: 10px 0 4px;
+      letter-spacing: 1px;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin: 6px 0;
+      font-weight: normal;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin: 8px 0;
+      color: #eee;
+    }
+
+    .gold-circle {
+      width: 120px;
+      height: 120px;
+      border: 3px solid #d4af37;
+      border-radius: 50%;
+      margin: 10px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      font-weight: bold;
+      background: radial-gradient(circle, #2a2a2a, #000);
+      box-shadow: 0 0 15px rgba(212,175,55,0.6);
+    }
+
+    .btn {
+      margin-top: 14px;
+      padding: 12px 18px;
+      background: linear-gradient(135deg, #f5e29f, #c9a233);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    }
+
+    .btn:hover {
+      filter: brightness(1.1);
+    }
+
+    .hint {
+      position: absolute;
+      bottom: -42px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #d4af37;
+      opacity: 0.85;
+    }
+
+    .open .flap {
+      transform: rotateX(180deg);
+    }
+
+    .open .card {
+      bottom: -8%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="envelopeContainer">
+  <div class="envelope">
+    <div class="flap"></div>
+    <div class="body"></div>
+    <div class="card">
+      <p>ESTÁS INVITADO A CELEBRAR</p>
+      <div class="gold-circle">50</div>
+      <h1>Cumpleaños</h1>
+      <h2>Diana Evelin Chaparro</h2>
+      <p>20 de enero de 2026</p>
+      <p>10:00 PM</p>
+      <p>Casa</p>
+      <button class="btn" onclick="openForm()">Confirmar asistencia</button>
+    </div>
+  </div>
+  <div class="hint">Toca para abrir tu invitación</div>
+</div>
+
+<audio id="openSound">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_4bde6c69f4.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const container = document.getElementById('envelopeContainer');
+  const sound = document.getElementById('openSound');
+
+  container.addEventListener('click', () => {
+    if (!container.classList.contains('open')) {
+      container.classList.add('open');
+      sound.play();
+    }
+  });
+
+  function openForm() {
+    window.open('https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=xWKeMpm8IEuvEur3klhQ3UoOz95G929Bmld8R0dHlN1UQ0xRNEdRSzlJUE1TUU1TVThKQ0xQQUgyNC4u', '_blank');
+  }
+</script>
+
+</body>
+</html>
